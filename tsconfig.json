@@ -7,11 +7,14 @@
       "es2017",
       "dom"
     ],
-    "strict": true,
+    "jsx": "react",
+    // "strict": true, // typography.js がまだ TypeScript 化していないのでお許しください
     "removeComments": true,
     "experimentalDecorators": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
   },
   "include": [
     "./src/**/*"
