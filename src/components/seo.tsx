@@ -12,12 +12,13 @@ import { useStaticQuery, graphql } from "gatsby"
 
 interface Props {
   description?: string,
+  image?: string,
   lang?: string,
   meta?: any, // FIXME: react-helment の meta プロパティに concat できる型が見つからない
   title: string,
 }
 
-const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
+const SEO: React.FC<Props> = ({ description, image, lang, meta, title }) => {
   const { site }: GatsbyTypes.SEOMetadataQueryQuery = useStaticQuery<GatsbyTypes.SEOMetadataQueryQuery>(
     graphql`
       query SEOMetadataQuery {
@@ -35,6 +36,7 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaImageUrl = image || ""
 
   return (
     <Helmet
@@ -61,8 +63,12 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: metaImageUrl
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -76,20 +82,26 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: metaImageUrl
+        }
       ].concat(meta)}
     />
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `ja`,
   meta: [],
   description: ``,
+  image: ``,
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
+  image: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }
