@@ -26,7 +26,6 @@ const SEO: React.FC<Props> = ({ description, image, lang, meta, title }) => {
           siteMetadata {
             title
             description
-            siteUrl
             social {
               twitter
             }
@@ -69,7 +68,7 @@ const SEO: React.FC<Props> = ({ description, image, lang, meta, title }) => {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
