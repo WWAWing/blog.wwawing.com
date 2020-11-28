@@ -9,7 +9,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { SeoMetadataQueryQuery } from "../../graphql-types"
 
 interface Props {
   description?: string,
@@ -19,7 +18,7 @@ interface Props {
 }
 
 const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
-  const { site }: SeoMetadataQueryQuery = useStaticQuery(
+  const { site }: GatsbyTypes.SEOMetadataQueryQuery = useStaticQuery<GatsbyTypes.SEOMetadataQueryQuery>(
     graphql`
       query SEOMetadataQuery {
         site {
