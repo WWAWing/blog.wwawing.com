@@ -34,9 +34,9 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        title={post.frontmatter.title || ""}
+        title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
-        image={post.frontmatter.image.publicURL || ""}
+        image={post.frontmatter.image?.publicURL}
       />
       <article>
         <header>
