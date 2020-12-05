@@ -1,10 +1,10 @@
 import React from "react"
-import { PageProps, Link, graphql } from "gatsby"
+import { PageProps, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import PostItem from "../components/postItem"
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, location }) => {
   const siteTitle = data.site?.siteMetadata?.title
@@ -16,29 +16,13 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, loca
       <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter?.title || node.fields?.slug
-        return (
-          <article key={node.fields?.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields?.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter?.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter?.description || node.excerpt || "",
-                }}
-              />
-            </section>
-          </article>
-        )
+        const description = node.frontmatter.description || node.excerpt
+        return <PostItem
+          slug={node.fields.slug}
+          title={title}
+          date={node.frontmatter.date}
+          description={description}
+        />
       })}
     </Layout>
   )

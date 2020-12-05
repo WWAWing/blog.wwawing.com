@@ -8,7 +8,8 @@ type BlogPostsQuery = {
   allMarkdownRemark: {
     edges: {
       node: BlogPostNode
-    }[]
+    }[],
+    allCategories: string[]
   }
 }
 
@@ -25,6 +26,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
+  const categoryPage = path.resolve(`./src/templates/category.tsx`)
   const result = await graphql<BlogPostsQuery>(
     `
       query BlogPosts {
@@ -42,7 +44,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
               }
             }
           }
-          distinct(field: frontmatter___category)
+          allCategories: distinct(field: frontmatter___category)
         }
       }
     `
@@ -69,4 +71,18 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
       },
     })
   })
+
+  // Create category pages.
+  const categories = result.data.allMarkdownRemark.allCategories
+
+  categories.forEach((category) => {
+    createPage({
+      path: `/category/${category}`,
+      component: categoryPage,
+      context: {
+        category
+      },
+    })
+  })
+
 }
