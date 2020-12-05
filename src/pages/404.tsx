@@ -3,10 +3,9 @@ import { graphql, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { NotFoundPageQuery } from "../../graphql-types"
 
-const NotFoundPage: React.FC<PageProps<NotFoundPageQuery>> = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+const NotFoundPage: React.FC<PageProps<GatsbyTypes.NotFoundPageQuery>> = ({ data, location }) => {
+  const siteTitle = data.site?.siteMetadata?.title
 
   return (
     <Layout location={location} title={siteTitle}>

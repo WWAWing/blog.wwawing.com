@@ -5,11 +5,10 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import { BlogPostBySlugQuery } from "../../graphql-types"
 import { BlogPostNode } from "../../gatsby-node/create-pages"
 
 interface Props {
-  data: BlogPostBySlugQuery,
+  data: GatsbyTypes.BlogPostBySlugQuery,
   pageContext: {
     slug: string,
     previous: BlogPostNode,
@@ -20,14 +19,24 @@ interface Props {
 
 const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
+  const siteTitle = data.site?.siteMetadata?.title
   const { previous, next } = pageContext
+
+  if (post === undefined || post.frontmatter === undefined) {
+    return (
+      <Layout location={location} title={siteTitle}>
+        <h1>お探しの記事は見つかりませんでした。</h1>
+        <p>もしかしたら、投稿が正しく取得されなかったかもしれません。管理者の方は、投稿内容をご確認ください。</p>
+      </Layout>
+    )
+  }
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={post.frontmatter.image?.publicURL}
       />
       <article>
         <header>
@@ -107,6 +116,9 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image {
+          publicURL
+        }
       }
     }
   }

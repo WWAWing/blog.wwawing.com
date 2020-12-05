@@ -10,10 +10,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
-import { BioQueryQuery } from "../../graphql-types"
 
 const Bio: React.FC = () => {
-  const data: BioQueryQuery = useStaticQuery(graphql`
+  const data: GatsbyTypes.BioQueryQuery = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
