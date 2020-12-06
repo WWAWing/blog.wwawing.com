@@ -19,7 +19,7 @@ interface Props {
 }
 
 const SEO: React.FC<Props> = ({ description, image, lang, meta, title }) => {
-  const { site, defaultOgpImage }: GatsbyTypes.SEOMetadataQueryQuery = useStaticQuery<GatsbyTypes.SEOMetadataQueryQuery>(
+  const { site, defaultOgpImage } = useStaticQuery<GatsbyTypes.SEOMetadataQueryQuery>(
     graphql`
       query SEOMetadataQuery {
         site {
