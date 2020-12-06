@@ -10,7 +10,7 @@ interface Props {
 
 /**
  * シェアボタンのコンポーネントです。
- * @param url 
+ * @param publicUrl ページの絶対パス (サイトの URL は含まない)
  */
 const Share: React.FC<Props> = ({ publicUrl }) => {
   const data = useStaticQuery<GatsbyTypes.ShareQueryQuery>(graphql`
