@@ -3334,6 +3334,11 @@ type TitleBannerQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type TitleBannerQueryQuery = { readonly banner: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
+type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
+
 type SEOMetadataQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3341,11 +3346,6 @@ type SEOMetadataQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: May
       Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
       & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
     )> }>, readonly defaultOgpImage: Maybe<Pick<File, 'publicURL'>> };
-
-type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
 
 type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
 
