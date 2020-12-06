@@ -19,24 +19,30 @@ interface Props {
 }
 
 const SEO: React.FC<Props> = ({ description, image, lang, meta, title }) => {
-  const { site }: GatsbyTypes.SEOMetadataQueryQuery = useStaticQuery<GatsbyTypes.SEOMetadataQueryQuery>(
+  const { site, defaultOgpImage }: GatsbyTypes.SEOMetadataQueryQuery = useStaticQuery<GatsbyTypes.SEOMetadataQueryQuery>(
     graphql`
       query SEOMetadataQuery {
         site {
           siteMetadata {
             title
             description
+            siteUrl
             social {
               twitter
             }
           }
+        }
+        defaultOgpImage: file(absolutePath: { regex: "/default-ogp-image.png/" }) {
+          publicURL
         }
       }
     `
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaImageUrl = image || ""
+  const metaImageUrl = image
+    ? `${site.siteMetadata.siteUrl}${image}`
+    : `${site.siteMetadata.siteUrl}${defaultOgpImage.publicURL}`
 
   return (
     <Helmet
