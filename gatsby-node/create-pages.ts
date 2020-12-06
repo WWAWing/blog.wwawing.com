@@ -1,5 +1,6 @@
 import path from 'path'
 import { GatsbyNode } from 'gatsby'
+import getCategoryUrl from '../src/utils/getCategoryUrl'
 
 /**
  * @todo BlogPostsQuery は graphql-types.ts から読み取ることも可能ですが、 createPage の段階で型が合いません
@@ -77,7 +78,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
 
   categories.forEach((category) => {
     createPage({
-      path: `/category/${category}`,
+      path: getCategoryUrl(category),
       component: categoryPage,
       context: {
         category

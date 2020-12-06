@@ -22,6 +22,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, loca
           title={title}
           date={node.frontmatter.date}
           description={description}
+          category={node.frontmatter.category}
         />
       })}
     </Layout>
@@ -48,6 +49,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            category
           }
         }
       }

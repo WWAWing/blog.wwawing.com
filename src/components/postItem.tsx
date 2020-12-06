@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
+import getCategoryUrl from "../utils/getCategoryUrl"
 
 import { rhythm } from "../utils/typography"
 
@@ -8,9 +9,10 @@ interface Props {
   title: string,
   date: string,
   description: string,
+  category?: string,
 }
 
-const PostItem: React.FC<Props> = ({ slug, title, date, description }) => {
+const PostItem: React.FC<Props> = ({ slug, title, date, description, category }) => {
   return (
     <article>
       <header>
@@ -23,6 +25,15 @@ const PostItem: React.FC<Props> = ({ slug, title, date, description }) => {
             {title}
           </Link>
         </h3>
+        {category &&
+          <small
+            style={{
+              marginRight: rhythm(1 / 2)
+            }}
+          >
+            <Link to={getCategoryUrl(category)}>{category}</Link>
+          </small>
+        }
         <small>{date}</small>
       </header>
       <section>

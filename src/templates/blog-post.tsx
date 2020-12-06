@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import { BlogPostNode } from "../../gatsby-node/create-pages"
+import getCategoryUrl from "../utils/getCategoryUrl"
 
 interface Props {
   data: GatsbyTypes.BlogPostBySlugQuery,
@@ -32,7 +33,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   }
 
   const subtitleStyle = {
-    ...scale(-1 / 5),
+    ...scale(-1 / 7.5),
     display: `block`,
     marginTop: 0,
     marginBottom: 0,
@@ -53,7 +54,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
           }}
         >
           <p style={subtitleStyle}>
-            <Link to={`/category/${post.frontmatter.category}`} rel="category">
+            <Link to={getCategoryUrl(post.frontmatter.category)} rel="category">
               {post.frontmatter.category}
             </Link>
           </p>
