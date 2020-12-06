@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import { BlogPostNode } from "../../gatsby-node/create-pages"
 import getCategoryUrl from "../utils/getCategoryUrl"
+import Share from "../components/share"
 
 interface Props {
   data: GatsbyTypes.BlogPostBySlugQuery,
@@ -21,7 +22,7 @@ interface Props {
 const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site?.siteMetadata?.title
-  const { previous, next } = pageContext
+  const { slug, previous, next } = pageContext
 
   if (post === undefined || post.frontmatter === undefined) {
     return (
@@ -77,6 +78,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
           }}
         />
         <footer>
+          <Share publicUrl={slug} />
           <Bio />
         </footer>
       </article>
@@ -118,6 +120,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
