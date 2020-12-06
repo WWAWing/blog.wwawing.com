@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import { BlogPostNode } from "../../gatsby-node/create-pages"
+import getCategoryUrl from "../utils/getCategoryUrl"
 
 interface Props {
   data: GatsbyTypes.BlogPostBySlugQuery,
@@ -31,6 +32,13 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
     )
   }
 
+  const subtitleStyle = {
+    ...scale(-1 / 7.5),
+    display: `block`,
+    marginTop: 0,
+    marginBottom: 0,
+  }
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -39,22 +47,26 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
         image={post.frontmatter.image?.publicURL}
       />
       <article>
-        <header>
+        <header
+          style={{
+            marginTop: rhythm(1),
+            marginBottom: rhythm(1)
+          }}
+        >
+          <p style={subtitleStyle}>
+            <Link to={getCategoryUrl(post.frontmatter.category)} rel="category">
+              {post.frontmatter.category}
+            </Link>
+          </p>
           <h1
             style={{
-              marginTop: rhythm(1),
+              marginTop: 0,
               marginBottom: 0,
             }}
           >
             {post.frontmatter.title}
           </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-            }}
-          >
+          <p style={subtitleStyle}>
             {post.frontmatter.date}
           </p>
         </header>
@@ -119,6 +131,7 @@ export const pageQuery = graphql`
         image {
           publicURL
         }
+        category
       }
     }
   }
