@@ -1,5 +1,5 @@
 ---
-title: 過去の WWA Wing のリリースをお探しの方へ
+title: 過去の WWA Wing のアップデート情報をお探しの方へ
 date: "2020-12-07T00:00:00+09:00"
 category: "お知らせ"
 description: 本ブログ開設前の WWA Wing のアップデート情報は Aokashi Room に掲載しています。
@@ -7,7 +7,7 @@ description: 本ブログ開設前の WWA Wing のアップデート情報は Ao
 
 本ブログ開設前の WWA Wing のアップデート情報は [Aokashi Room](https://aokashi.hatenablog.jp) に掲載しています。
 
-各リリースの記事を下記に掲載しますのでお探しの方はご参考ください。
+各アップデート情報の記事を下記に掲載しますのでお探しの方はご参考ください。
 
 - [WWA Wing v3.2.0](https://aokashi.hatenablog.jp/entry/2019-wwawing-3-2-0-release)
   - ゲームパッドのサポート
