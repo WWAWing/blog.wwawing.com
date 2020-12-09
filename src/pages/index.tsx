@@ -4,7 +4,7 @@ import { PageProps, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostItem from "../components/postItem"
+import PostItem from "../components/postItem/index"
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, location }) => {
   const siteTitle = data.site?.siteMetadata?.title
@@ -18,11 +18,13 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, loca
         const title = node.frontmatter?.title || node.fields?.slug
         const description = node.frontmatter.description || node.excerpt
         return <PostItem
+          key={node.fields.slug}
           slug={node.fields.slug}
           title={title}
           date={node.frontmatter.date}
           description={description}
           category={node.frontmatter.category}
+          image={node.frontmatter.image?.childImageSharp?.fluid}
         />
       })}
     </Layout>
@@ -50,6 +52,13 @@ export const pageQuery = graphql`
             title
             description
             category
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

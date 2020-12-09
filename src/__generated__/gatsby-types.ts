@@ -3334,11 +3334,6 @@ type TitleBannerQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type TitleBannerQueryQuery = { readonly banner: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
-type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
-
 type SEOMetadataQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3347,18 +3342,26 @@ type SEOMetadataQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: May
       & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
     )> }>, readonly defaultOgpImage: Maybe<Pick<File, 'publicURL'>> };
 
-type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
+type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type NotFoundPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
 
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type IndexPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<MarkdownRemark, 'excerpt'>
-        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description' | 'category'>> }
+        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description' | 'category'>
+          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+        )> }
       ) }> } };
+
+type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NotFoundPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -3382,7 +3385,10 @@ type CategoryPageQueryQuery = { readonly allMarkdownRemark: { readonly edges: Re
         Pick<MarkdownRemark, 'excerpt'>
         & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
           Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description'>
-          & { readonly image: Maybe<Pick<File, 'publicURL'>> }
+          & { readonly image: Maybe<(
+            Pick<File, 'publicURL'>
+            & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }
+          )> }
         )> }
       ) }> } };
 
