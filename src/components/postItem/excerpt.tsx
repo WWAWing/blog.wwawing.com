@@ -16,15 +16,16 @@ const PostItemExcerpt: React.FC<Props> = ({ description, image }) => {
             }}
         />
     )
-    const imageMinWidth = 300
 
     if (image) {
+        const imageMinWidth = 300
         // INFO: rhythm(0.7) は typography.js の p の余白からきている
+        const imageMargin = rhythm(0.7)
         return (
             <>
                 <div style={{
                     float: `right`,
-                    marginBottom: rhythm(0.7),
+                    margin: `0 ${imageMargin} ${imageMargin}`,
                 }}>
                     <Image
                         fluid={image}
