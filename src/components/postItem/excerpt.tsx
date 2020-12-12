@@ -22,20 +22,26 @@ const PostItemExcerpt: React.FC<Props> = ({ description, image }) => {
         // INFO: rhythm(0.7) は typography.js の p の余白からきている
         const imageMargin = rhythm(0.7)
         return (
-            <>
-                <div style={{
-                    float: `right`,
-                    margin: `0 ${imageMargin} ${imageMargin}`,
-                }}>
+            <div style={{
+                display: `flex`,
+                flexFlow: `row-reverse wrap`,
+                justifyContent: `center`,
+                margin: `${imageMargin} 0 0`,
+            }}>
+                <div style={{ flex: `0 1 ${imageMinWidth}px` }}>
                     <Image
                         fluid={image}
                         alt={``}
-                        style={{ minWidth: imageMinWidth }}
+                        style={{
+                            margin: `0 ${imageMargin} ${imageMargin}`,
+                            minWidth: imageMinWidth,
+                        }}
                     />
                 </div>
-                {excerpt}
-                <div style={{ clear: `right` }} />
-            </>
+                <div style={{ flex: `1 0 0` }}>
+                    {excerpt}
+                </div>
+            </div>
         )
     }
 

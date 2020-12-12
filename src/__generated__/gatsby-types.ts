@@ -707,8 +707,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___id = 'childMarkdownRemark.id',
   childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
   childMarkdownRemark___frontmatter___date = 'childMarkdownRemark.frontmatter.date',
-  childMarkdownRemark___frontmatter___category = 'childMarkdownRemark.frontmatter.category',
   childMarkdownRemark___frontmatter___description = 'childMarkdownRemark.frontmatter.description',
+  childMarkdownRemark___frontmatter___category = 'childMarkdownRemark.frontmatter.category',
   childMarkdownRemark___frontmatter___image___sourceInstanceName = 'childMarkdownRemark.frontmatter.image.sourceInstanceName',
   childMarkdownRemark___frontmatter___image___absolutePath = 'childMarkdownRemark.frontmatter.image.absolutePath',
   childMarkdownRemark___frontmatter___image___relativePath = 'childMarkdownRemark.frontmatter.image.relativePath',
@@ -1566,8 +1566,8 @@ enum MarkdownRemarkFieldsEnum {
   id = 'id',
   frontmatter___title = 'frontmatter.title',
   frontmatter___date = 'frontmatter.date',
-  frontmatter___category = 'frontmatter.category',
   frontmatter___description = 'frontmatter.description',
+  frontmatter___category = 'frontmatter.category',
   frontmatter___image___sourceInstanceName = 'frontmatter.image.sourceInstanceName',
   frontmatter___image___absolutePath = 'frontmatter.image.absolutePath',
   frontmatter___image___relativePath = 'frontmatter.image.relativePath',
@@ -1759,8 +1759,8 @@ type MarkdownRemarkFilterInput = {
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
-  readonly category: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
+  readonly category: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
 };
 
@@ -1775,8 +1775,8 @@ type MarkdownRemarkFrontmatter_dateArgs = {
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
-  readonly category: Maybe<StringQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
+  readonly category: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
 };
 
@@ -3324,20 +3324,15 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
-type BioQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type BioQueryQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<SiteSiteMetadataAuthor, 'name' | 'summary'>>, readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }> }> };
-
 type TitleBannerQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type TitleBannerQueryQuery = { readonly banner: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
-type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type BioQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
+type BioQueryQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<SiteSiteMetadataAuthor, 'name' | 'summary'>>, readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }> }> };
 
 type SEOMetadataQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3351,6 +3346,22 @@ type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type NotFoundPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
+
+type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description' | 'category'>
+          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+        )> }
+      ) }> } };
 
 type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -3430,16 +3441,5 @@ type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 't
 type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type IndexPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MarkdownRemark, 'excerpt'>
-        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description' | 'category'>
-          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-        )> }
-      ) }> } };
 
 }

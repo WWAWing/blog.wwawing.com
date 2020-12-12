@@ -25,6 +25,7 @@ const CategoryPageTemplate: React.FC<Props> = ({ data, pageContext, location }) 
         const title = node.frontmatter?.title || node.fields?.slug
         const description = node.frontmatter.description || node.excerpt;
         return <PostItem
+          key={node.fields.slug}
           slug={node.fields.slug}
           title={title}
           date={node.frontmatter.date}
