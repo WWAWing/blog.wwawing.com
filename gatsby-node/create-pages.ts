@@ -1,5 +1,6 @@
 import path from 'path'
 import { GatsbyNode } from 'gatsby'
+import getCategoryUrl from '../src/utils/getCategoryUrl'
 
 /**
  * @todo BlogPostsQuery は graphql-types.ts から読み取ることも可能ですが、 createPage の段階で型が合いません
@@ -8,7 +9,8 @@ type BlogPostsQuery = {
   allMarkdownRemark: {
     edges: {
       node: BlogPostNode
-    }[]
+    }[],
+    allCategories: string[]
   }
 }
 
@@ -25,6 +27,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
+  const categoryPage = path.resolve(`./src/templates/category.tsx`)
   const result = await graphql<BlogPostsQuery>(
     `
       query BlogPosts {
@@ -42,6 +45,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
               }
             }
           }
+          allCategories: distinct(field: frontmatter___category)
         }
       }
     `
@@ -68,4 +72,18 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
       },
     })
   })
+
+  // Create category pages.
+  const categories = result.data.allMarkdownRemark.allCategories
+
+  categories.forEach((category) => {
+    createPage({
+      path: getCategoryUrl(category),
+      component: categoryPage,
+      context: {
+        category
+      },
+    })
+  })
+
 }

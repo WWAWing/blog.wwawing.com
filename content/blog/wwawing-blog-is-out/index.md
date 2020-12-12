@@ -1,6 +1,7 @@
 ---
 title: WWA Wing ブログを開設しました
 date: "2020-11-28T12:47:00+09:00"
+category: "お知らせ"
 description: "WWA Wing Team です。この度、新しく WWA Wing のブログを開設しました。"
 ---
 

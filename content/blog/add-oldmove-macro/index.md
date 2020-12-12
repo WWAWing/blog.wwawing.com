@@ -2,6 +2,7 @@
 title: WWA Wing v3.5.4 リリース！ $oldmove マクロを追加！
 date: "2020-11-29T00:00:00+09:00"
 description: "WWA Wing Team です。WWA Wing v.3.5.4 をリリースしました。今回のリリースには $oldmove マクロの追加が含まれています。"
+category: "リリース"
 image: "wwamap-oldmove.png"
 ---
 
