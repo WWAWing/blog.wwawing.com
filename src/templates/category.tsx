@@ -1,9 +1,9 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Bio from "../components/bio";
-import PostItem from "../components/postItem";
+import PostItem from "../components/postItem/index";
 
 interface Props {
   data: GatsbyTypes.CategoryPageQueryQuery,
@@ -25,10 +25,12 @@ const CategoryPageTemplate: React.FC<Props> = ({ data, pageContext, location }) 
         const title = node.frontmatter?.title || node.fields?.slug
         const description = node.frontmatter.description || node.excerpt;
         return <PostItem
+          key={node.fields.slug}
           slug={node.fields.slug}
           title={title}
           date={node.frontmatter.date}
           description={description}
+          image={node.frontmatter.image?.childImageSharp?.fluid}
         />
       })}
     </Layout>
@@ -52,6 +54,11 @@ export const pageQuery = graphql`
             description
             image {
               publicURL
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

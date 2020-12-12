@@ -1,18 +1,18 @@
 import { Link } from "gatsby"
 import React from "react"
-import getCategoryUrl from "../utils/getCategoryUrl"
+import getCategoryUrl from "../../utils/getCategoryUrl"
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from "../../utils/typography"
 
 interface Props {
   slug: string,
   title: string,
   date: string,
-  description: string,
   category?: string,
+  children: React.ReactNode
 }
 
-const PostItem: React.FC<Props> = ({ slug, title, date, description, category }) => {
+const PostItemContainer: React.FC<Props> = ({ slug, title, date, category, children }) => {
   return (
     <article>
       <header>
@@ -37,14 +37,10 @@ const PostItem: React.FC<Props> = ({ slug, title, date, description, category })
         <small>{date}</small>
       </header>
       <section>
-        <p
-          dangerouslySetInnerHTML={{
-            __html: description || "",
-          }}
-        />
+        {children}
       </section>
     </article>
   )
 }
 
-export default PostItem
+export default PostItemContainer
