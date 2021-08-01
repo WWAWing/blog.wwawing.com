@@ -1,6 +1,6 @@
 ---
 title: "WWA素材をWWAゲームのGIF画像に埋め込むには？"
-date: "2021-05-04T00:00:00+09:00"
+date: "2021-08-01T21:00:00+09:00"
 category: "コラム"
 description: "こんにちは。 WWA Wing Team です。WWA ゲームを制作する際に、他人が制作した WWA 画像素材を使用する必要があると思います。ただし、他人が制作した WWA 素材画像は、WWA ゲームを動かす上で必要な配置になっていない場合もあります。ここでは、そんな WWA 画像素材をマス単位で WWA ゲームの GIF 画像に取り入れる方法をご紹介します。"
 image: wwa_material-how_to_insert.png
