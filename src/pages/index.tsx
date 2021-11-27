@@ -24,7 +24,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, loca
           date={node.frontmatter.date}
           description={description}
           category={node.frontmatter.category}
-          image={node.frontmatter.image?.childImageSharp?.fluid}
+          image={node.frontmatter.image?.childImageSharp?.gatsbyImageData}
         />
       })}
     </Layout>
@@ -54,9 +54,7 @@ export const pageQuery = graphql`
             category
             image {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData
               }
             }
           }
