@@ -30,7 +30,7 @@ const CategoryPageTemplate: React.FC<Props> = ({ data, pageContext, location }) 
           title={title}
           date={node.frontmatter.date}
           description={description}
-          image={node.frontmatter.image?.childImageSharp?.fluid}
+          image={node.frontmatter.image?.childImageSharp?.gatsbyImageData}
         />
       })}
     </Layout>
@@ -55,9 +55,7 @@ export const pageQuery = graphql`
             image {
               publicURL
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData
               }
             }
           }

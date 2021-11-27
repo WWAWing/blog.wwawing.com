@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImageProps } from "gatsby-image"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
 import PostItemContainer from "./container"
 import PostItemExcerpt from "./excerpt"
@@ -10,7 +10,7 @@ interface Props {
   date: string,
   description: string,
   category?: string,
-  image?: GatsbyImageProps["fluid"]
+  image?: IGatsbyImageData
 }
 
 const PostItem: React.FC<Props> = ({ slug, title, date, description, category, image }) => {

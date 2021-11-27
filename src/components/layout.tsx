@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import { rhythm } from "../utils/typography"
 
@@ -13,9 +13,7 @@ const Layout = ({ location, title, children }) => {
     query TitleBannerQuery {
       banner: file(absolutePath: { regex: "/title-banner.png/" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData
         }
       }
     }
@@ -36,8 +34,8 @@ const Layout = ({ location, title, children }) => {
           }}
           to={`/`}
         >
-          <Image
-            fluid={data.banner.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.banner.childImageSharp.gatsbyImageData}
             alt={title}
             style={{
               display: `inline-block`,
@@ -63,8 +61,8 @@ const Layout = ({ location, title, children }) => {
           }}
           to={`/`}
         >
-          <Image
-            fluid={data.banner.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.banner.childImageSharp.gatsbyImageData}
             alt={title}
             style={{
               display: `inline-block`,

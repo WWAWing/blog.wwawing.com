@@ -1,11 +1,11 @@
 import React from "react"
-import Image, { GatsbyImageProps } from "gatsby-image"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 import { rhythm } from "../../utils/typography"
 
 interface Props {
     description: string,
-    image: GatsbyImageProps["fluid"]
+    image: IGatsbyImageData
 }
 
 const PostItemExcerpt: React.FC<Props> = ({ description, image }) => {
@@ -29,8 +29,8 @@ const PostItemExcerpt: React.FC<Props> = ({ description, image }) => {
                 margin: `${imageMargin} 0 0`,
             }}>
                 <div style={{ flex: `0 1 ${imageMinWidth}px` }}>
-                    <Image
-                        fluid={image}
+                    <GatsbyImage
+                        image={image}
                         alt={``}
                         style={{
                             margin: `0 ${imageMargin} ${imageMargin}`,
