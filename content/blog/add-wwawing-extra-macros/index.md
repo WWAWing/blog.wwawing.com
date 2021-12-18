@@ -69,7 +69,7 @@ WWA をプレイする際に使用する HTML ファイルを編集する必要�
 1. `<body>` から `</body>` までの適当な位置に `<div id="vardump"></div>` を追加します。
 2. `<div ... id="wwa-wrapper">` の箇所に属性 `data-wwa-var-dump-elm="#vardump"` を追加します。
 
-HTML ファイルの `#wwa-wrapper` 周辺では下記の通りになっていると思います。これで変数ビューワが表示されます。
+HTML ファイルの `#wwa-wrapper` 周辺では下記の通りになっていると思います。これで変数一覧が表示されます。
 
 ```html
 <div
