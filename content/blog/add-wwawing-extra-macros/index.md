@@ -3,6 +3,7 @@ title: WWA Wing v3.6.0 をリリース！
 date: "2021-12-18T00:00:00+09:00"
 description: "WWA Wing Team の Aokashi です。変数や条件分岐など、様々な拡張マクロ文を追加した WWA Wing v3.6.0 をリリースしました。"
 category: "リリース"
+image: "wwawing_add_extra_macros.png"
 ---
 
 WWA Wing Team の Aokashi です。変数や条件分岐など、様々な拡張マクロ文を追加した WWA Wing v3.6.0 をリリースしました。
@@ -64,7 +65,9 @@ WWA Wing を自分の PC でデバッグする際に便利な変数表示機能�
 
 ![変数表示機能の表](wwa_wing_variable_map.png)
 
-WWA をプレイする際に使用する HTML ファイルを編集する必要があります。
+現在のバージョンの完全版を利用する場合は、最初から変数表示機能が含まれています。
+
+以前のバージョンからアップグレードする場合は、 WWA をプレイする際に使用する HTML ファイルを編集する必要があります。
 
 1. `<body>` から `</body>` までの適当な位置に `<div id="vardump"></div>` を追加します。
 2. `<div ... id="wwa-wrapper">` の箇所に属性 `data-wwa-var-dump-elm="#vardump"` を追加します。
@@ -85,6 +88,8 @@ HTML ファイルの `#wwa-wrapper` 周辺では下記の通りになってい�
 <div id="vardump"></div>
 ```
 
+なお、表示される変数は WWA ゲームのネタバレに繋がりますので、公開時は `<div id="vardump"></div>` や `data-wwa-var-dump-elm="#vardump"` などを HTML ファイルから削除するようにしましょう。 PLiCy で公開する場合は変数表示機能が搭載されていませんのでこの点を考慮する必要はありません。
+
 - [7. ユーザー変数](https://wwawing.notion.site/7-5a4b3d475684414683242ded9fd57694)
 
 ### ゲームスピードの拡張
@@ -103,6 +108,15 @@ HTML ファイルの `#wwa-wrapper` 周辺では下記の通りになってい�
 - ゲームスピードの変更を禁止にできる `$game_speed`
 
 - [4. マクロ一覧](https://wwawing.notion.site/eaaeb453a5054474aaecf34e4d66b534?v=6339f153810040f4877101ed6d3cd04f)
+
+### セーブデータの格納情報の追加
+Quick Save やパスワードセーブなどのセーブデータに下記の情報が追加されます。
+
+- ユーザー変数
+- ゲームスピードの変更可否
+- ゲームスピード
+- プレイ時間
+- 各ステータス欄の表示状態
 
 ## 今後の予定について
 今後のアップデートではスマートフォンでの操作がしやすくなる仮想パッドの追加を予定しています。仮想パッドについては自分が制作した [謎めいた機械を追い求めて](https://www.aokashi.net/wwa/strange_machine/) で試すことができます。ご意見をお待ちしております。
