@@ -17,7 +17,7 @@ WWA Wing Team の Aokashi です。変数や条件分岐など、様々な拡張
 
 また、WWA Wing v3.6.0 リリースに併せて、サンプルゲームを WWA コミュニティのメンバーに制作していただきました。
 
-調整の都合上、公開までしばらくお待ちいただければと思います。
+- [WWA Wing v3.6 サンプルゲームのダウンロード](https://wwawing.com/downloads/3-6-sample-games.html)
 
 ## 追加内容
 詳しい追加内容は [WWA Wing マニュアル](https://wwawing.notion.site/wwawing/WWA-Wing-1fca5acaf51a4df38b953c478c8b9a5e) に記載していますので、こちらと併せてお読みください。
