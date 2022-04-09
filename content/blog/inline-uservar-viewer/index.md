@@ -1,6 +1,6 @@
 ---
 title: 変数に名前をつけられるようになりました。
-date: "2022-04-09T00:00:00+09:00"
+date: "2022-04-09T18:40:00+09:00"
 description: "WWA Wing v3.7.0 をリリースしました。ユーザ変数に名前をつけて表示できるようになりました。"
 category: "リリース"
 image: "./wwa-uservar-list-in-game.png"
@@ -74,20 +74,13 @@ WWA Wing v3.7.0 をリリースしました。(その後不具合修正を行っ
 
 変数一覧表示を有効にするには `data-wwa-display-user-vars` 属性に `true` を与えてください。ゲームを Web上に公開する時は、この属性を忘れずに消去してください。この属性が指定されていない場合は、【V】キーの変数一覧も、画面外の変数一覧も表示されなくなります。
 
-また、`data-wwa-user-var-names-file` 属性を使って、作成した変数の名前リストのファイル (拡張子 `.json`) を指定してください。例えば、作成した名前リストのファイルが `sugoi-game-vars.json` であれば、下記のようにしてください。
-
-`data-wwa-display-vars` 属性が `true` かつ、 `data-wwa-user-var-bnames-file` 属性が与えられない場合は、全ての変数が名無し扱いになります。
-
-ゲーム外の方の変数一覧を表示したくない場合は `data-wwa-var-dump-elm` 属性を削除してください。 
-
-
-まとめると、次のようになります。下記の設定では、
+例えば、
 
 - 変数一覧表示有効
 - 変数名一覧ファイル `sugoi-game-vars.json`
 - 画面外の方の変数一覧を表示
 
-という設定になります。
+という設定は、下記のHTMLのコードで実現できます。
 
  ```html
  <div
@@ -99,6 +92,12 @@ WWA Wing v3.7.0 をリリースしました。(その後不具合修正を行っ
   data-wwa-display-user-vars="true">
 </div>
 ```
+
+また、`data-wwa-user-var-names-file` 属性を使って、作成した変数の名前リストのファイル (拡張子 `.json`) を指定してください。
+
+`data-wwa-display-vars` 属性が `true` かつ、 `data-wwa-user-var-bnames-file` 属性が与えられない場合は、全ての変数が名無し扱いになります。
+
+ゲーム外の方の変数一覧を表示したくない場合は `data-wwa-var-dump-elm` 属性を削除してください。 
 
 ## 過去バージョンの WWA Wing からのアップデートする場合は注意してください
 過去バージョンをご利用で、画面外の変数一覧を表示していた場合は、WWA Wing の v3.7.0 以降へのアップデートとともに表示できなくなるので、アップデートした後 `data-wwa-display-user-vars="true"` を忘れずにつけてください。
