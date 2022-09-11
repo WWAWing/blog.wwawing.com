@@ -14,6 +14,8 @@ WWA Wing Team の Aokashi です。本日から WWA Wing v3.10.0 をリリース
 
 ### PLiCy でアップロードする場合
 
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">【アップデート】WWA Wing 3.10.0-beta に対応致しました。<br>スマートフォン端末では、WWAでは自動で仮想パッドも表示されるようになります。 <a href="https://twitter.com/hashtag/wwawing?src=hash&amp;ref_src=twsrc%5Etfw">#wwawing</a> <a href="https://t.co/5PD2vkdvAJ">pic.twitter.com/5PD2vkdvAJ</a></p>&mdash; PLiCy公式🎮無料ゲーム40000本配信🎉 (@plicy_info) <a href="https://twitter.com/plicy_info/status/1547187358503964672?ref_src=twsrc%5Etfw">July 13, 2022</a></blockquote>
+
 WWA Wing 対応ゲームが投稿できる PLiCy では、最初から仮想パッドが有効化されています。特別な設定を行うことなく、仮想パッドを使用することができます。
 
 （操作性は後述の自分のホームページにアップロードした場合のものと少し異なる場合があります。）
@@ -57,9 +59,11 @@ WWA Wing 付属の HTML ファイルを利用していない場合やビュー�
 
 ## 操作方法
 
-<!-- TODO 操作しているスクリーンショットを作る -->
+![wwawing_virtualpad_control_basic.gif](wwawing_virtualpad_control_basic.gif)
 
 左下が移動ボタンです。押しっぱなしの状態で指を動かすと動かした先の移動先に反応します。
+
+![wwawing_virtualpad_control_saving.gif](wwawing_virtualpad_control_saving.gif)
 
 右下が操作ボタンです。各ボタンは下記の通りに対応しています。
 
@@ -78,6 +82,12 @@ WWA Wing 付属の HTML ファイルを利用していない場合やビュー�
 
 もちろん、崩れる床での操作については難しいでしょう。複雑なコースを高速で突破できたなら達人者です。
 
-以上が仮想パッドの解説です。WWA Wing のリリースから7年近く。Java アプレットの実行環境から HTML5 の実行環境に移行したことで、スマートフォンでも遊べるという利点が得られました。ただし、操作性については若干の改善はありましたが最適化には至っていませんでした。リリースにおいては長らくお待たせしたかと思います。
+以上が仮想パッドの解説です。WWA Wing のリリースから7年近く。Java アプレットの実行環境から HTML5 の実行環境に移行したことで、スマートフォンでも遊べるという利点が得られました。
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">2015年 - ケーブダンジョンがタブレットで動く世界 <a href="https://twitter.com/hashtag/wwajs?src=hash&amp;ref_src=twsrc%5Etfw">#wwajs</a> <a href="http://t.co/KFuo72IgCA">pic.twitter.com/KFuo72IgCA</a></p>&mdash; WWA Wing (@wwa_wing) <a href="https://twitter.com/wwa_wing/status/584684483728650241?ref_src=twsrc%5Etfw">April 5, 2015</a></blockquote>
+
+ただし、操作性については若干の改善はありましたが最適化には至っていませんでした。リリースにおいては長らくお待たせしたかと思います。
+
+なお、開発にあたっては [JSまさお](https://ryo-9399.github.io/) の仮想パッド機能を参考にしました。
 
 今後も WWA Wing Team をよろしくお願いします。
