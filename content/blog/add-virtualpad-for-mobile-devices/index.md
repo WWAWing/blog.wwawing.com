@@ -6,9 +6,9 @@ category: "リリース"
 image: "wwawing_title_screen_with_virtualpad.png"
 ---
 
-WWA Wing Team の Aokashi です。本日から WWA Wing v3.10.0 をリリースしました。
+WWA Wing Team の Aokashi です。本日 WWA Wing v3.10.0 をリリースしました。
 
-本リリースではモバイル端末で仮想パッドが使用できるようになります。
+本リリースでは、モバイル端末で仮想パッドが使用できるようになります。
 
 ## 仮想パッドを有効にするには？
 
@@ -47,11 +47,11 @@ WWA Wing 対応ゲームが投稿できる PLiCy では、最初から仮想パ�
 
 ### data-wwa-virtualpad-enable
 
-仮想パッドを有効にします。
+`true` を指定することで、仮想パッドを有効にします。
 
 ### data-wwa-virtualpad-viewport-fit-enable
 
-端末の向きに応じて仮想パッドのサイズも切り替わるようにします。
+`true` を指定することで、端末の向きに応じて仮想パッドのサイズも切り替わるようにします。
 
 WWA Wing 付属の HTML ファイルを利用していない場合やビューポート設定を独自にしている場合は `data-wwa-virtualpad-viewport-fit-enable` は省略してください。
 
