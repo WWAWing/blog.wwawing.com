@@ -1,6 +1,6 @@
 ---
 title: 【仮想パッド】 WWA Wing v3.10.0 をリリース！
-date: "2022-09-11T00:00:00+09:00"
+date: "2022-09-18T00:00:00+09:00"
 description: "WWA Wing Team の Aokashi です。本日から WWA Wing v3.10.0 をリリースしました。本リリースではモバイルデバイスで仮想パッドが使用できるようになります。"
 category: "リリース"
 image: "wwawing_title_screen_with_virtualpad.png"
