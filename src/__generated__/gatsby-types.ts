@@ -264,6 +264,7 @@ type Site = Node & {
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly jsxRuntime: Maybe<Scalars['String']>;
+  readonly trailingSlash: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
@@ -734,13 +735,13 @@ type StaticImage = Node & {
   readonly name: Maybe<Scalars['String']>;
   readonly absolutePath: Maybe<Scalars['String']>;
   readonly relativeDirectory: Maybe<Scalars['String']>;
-  readonly dev: Maybe<Scalars['Int']>;
+  readonly dev: Maybe<Scalars['Float']>;
   readonly mode: Maybe<Scalars['Int']>;
   readonly nlink: Maybe<Scalars['Int']>;
   readonly uid: Maybe<Scalars['Int']>;
   readonly rdev: Maybe<Scalars['Int']>;
   readonly blksize: Maybe<Scalars['Int']>;
-  readonly ino: Maybe<Scalars['Int']>;
+  readonly ino: Maybe<Scalars['Float']>;
   readonly size: Maybe<Scalars['Int']>;
   readonly blocks: Maybe<Scalars['Int']>;
   readonly atimeMs: Maybe<Scalars['Float']>;
@@ -950,6 +951,7 @@ type Query_siteArgs = {
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   jsxRuntime: Maybe<StringQueryOperatorInput>;
+  trailingSlash: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
@@ -1122,13 +1124,13 @@ type Query_staticImageArgs = {
   name: Maybe<StringQueryOperatorInput>;
   absolutePath: Maybe<StringQueryOperatorInput>;
   relativeDirectory: Maybe<StringQueryOperatorInput>;
-  dev: Maybe<IntQueryOperatorInput>;
+  dev: Maybe<FloatQueryOperatorInput>;
   mode: Maybe<IntQueryOperatorInput>;
   nlink: Maybe<IntQueryOperatorInput>;
   uid: Maybe<IntQueryOperatorInput>;
   rdev: Maybe<IntQueryOperatorInput>;
   blksize: Maybe<IntQueryOperatorInput>;
-  ino: Maybe<IntQueryOperatorInput>;
+  ino: Maybe<FloatQueryOperatorInput>;
   size: Maybe<IntQueryOperatorInput>;
   blocks: Maybe<IntQueryOperatorInput>;
   atimeMs: Maybe<FloatQueryOperatorInput>;
@@ -2268,6 +2270,7 @@ type SiteFieldsEnum =
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
+  | 'trailingSlash'
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -2404,6 +2407,7 @@ type SiteFilterInput = {
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly jsxRuntime: Maybe<StringQueryOperatorInput>;
+  readonly trailingSlash: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
@@ -3967,13 +3971,13 @@ type StaticImageFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly absolutePath: Maybe<StringQueryOperatorInput>;
   readonly relativeDirectory: Maybe<StringQueryOperatorInput>;
-  readonly dev: Maybe<IntQueryOperatorInput>;
+  readonly dev: Maybe<FloatQueryOperatorInput>;
   readonly mode: Maybe<IntQueryOperatorInput>;
   readonly nlink: Maybe<IntQueryOperatorInput>;
   readonly uid: Maybe<IntQueryOperatorInput>;
   readonly rdev: Maybe<IntQueryOperatorInput>;
   readonly blksize: Maybe<IntQueryOperatorInput>;
-  readonly ino: Maybe<IntQueryOperatorInput>;
+  readonly ino: Maybe<FloatQueryOperatorInput>;
   readonly size: Maybe<IntQueryOperatorInput>;
   readonly blocks: Maybe<IntQueryOperatorInput>;
   readonly atimeMs: Maybe<FloatQueryOperatorInput>;
@@ -3991,11 +3995,6 @@ type StaticImageSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type TitleBannerQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type TitleBannerQueryQuery = { readonly banner: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
-
 type SEOMetadataQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4004,26 +4003,10 @@ type SEOMetadataQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: May
       & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
     )> }>, readonly defaultOgpImage: Maybe<Pick<File, 'publicURL'>> };
 
-type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
-
 type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type NotFoundPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
-
-type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type IndexPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MarkdownRemark, 'excerpt'>
-        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description' | 'category'>
-          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
-        )> }
-      ) }> } };
 
 type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -4037,6 +4020,27 @@ type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe
       & { readonly image: Maybe<Pick<File, 'publicURL'>> }
     )> }
   )> };
+
+type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description' | 'category'>
+          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+        )> }
+      ) }> } };
+
+type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
+
+type TitleBannerQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type TitleBannerQueryQuery = { readonly banner: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
 
 type CategoryPageQueryQueryVariables = Exact<{
   category: Scalars['String'];
