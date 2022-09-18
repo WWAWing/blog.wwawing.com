@@ -57,6 +57,26 @@ WWA Wing 付属の HTML ファイルを利用していない場合やビュー�
 
 逆に `data-wwa-virtualpad-enable` を省略してこの属性を使用することもできます。モバイル端末の大きな画面で WWA 画面を操作したいが、仮想パッドが不要な場合にご利用ください。
 
+### data-wwa-virtualpad-controller-elm
+
+仮想パッドの表示を切り替えるボタンを追加する要素を指定します。
+
+例えば下記の通りに `<div id="data-wwa-virtualpad-controller-elm"></div>` を追加した場合は `data-wwa-virtualpad-controller-elm="virtualpad-controller"` と指定することで、 `<div id="data-wwa-virtualpad-controller-elm"></div>` の箇所に仮想パッド切り替えボタンが追加されます。
+
+```html
+  <body>
+    <div id="wrapper">
+      <div class="wwa-size-box" id="wwa-wrapper" data-wwa-mapdata="wwamap.dat" data-wwa-urlgate-enable="true" data-wwa-title-img="cover.gif" data-wwa-autosave="200" data-wwa-virtualpad-enable="true" data-wwa-virtualpad-viewport-fit-enable="true"></div>
+    </div>
+    <div id="virtualpad-controller">
+    </div>
+    <footer id="copyright">
+      <p>Internet RPG &quot;<a class="wwa-copyright" href="https://wwajp.com/">World Wide Adventure</a>&quot; 1996-2016 &copy; NAO</p>
+      <p> &quot;<a class="wwa-copyright" href="https://wwawing.com/">WWA Wing</a>&quot; 2013-2022 &copy; WWA Wing Team</p>
+    </footer>
+  </body>
+```
+
 ## 操作方法
 
 ![wwawing_virtualpad_control_basic.gif](wwawing_virtualpad_control_basic.gif)
@@ -74,7 +94,7 @@ WWA Wing 付属の HTML ファイルを利用していない場合やビュー�
 
 また、端末の向きに応じて仮想パッドのサイズも切り替わります。WWA Wing Team 的には横持ちがおすすめです。ただし、前述で `data-wwa-virtualpad-viewport-fit-enable="true"` を省略した場合は有効になりません。
 
-仮想パッドの表示は切り替えることが可能です。「仮想パッド切り替え」ボタンで非表示にしたり、表示したりすることができます。PC でも仮想パッドを表示することはできますが、クリック操作には対応していません。
+`data-wwa-virtualpad-controller-elm` が含まれている場合、仮想パッドの表示を切り替えることが可能です。「仮想パッド切り替え」ボタンで非表示にしたり、表示したりすることができます。PC でも仮想パッドを表示することはできますが、クリック操作には対応していません。
 
 ## 操作性について
 
