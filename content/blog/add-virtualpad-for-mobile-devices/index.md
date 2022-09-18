@@ -24,6 +24,8 @@ WWA Wing 対応ゲームが投稿できる PLiCy では、最初から仮想パ�
 
 レイアウト崩れを考慮して何も設定していない場合は仮想パッドは有効になりません。下記の手順に従って有効にしていただく必要があります。
 
+まずは [WWA Wing のサイト](https://wwawing.com/) から最新の WWA Wing をダウンロードし、搭載されている wwa.js を更新しましょう。
+
 お手持ちのゲームの HTML ファイルに、下記を参考に追記してください。
 
 1. `<div class="wwa-size-box">` のある行を探します。特別に改行したりしてなければ14行目辺りにあると思います。
@@ -44,6 +46,8 @@ WWA Wing 対応ゲームが投稿できる PLiCy では、最初から仮想パ�
 ```
 
 ## data-wwa 属性について
+
+[https://wwawing.notion.site/6-data-wwa-fac13ae80435401eaeb33bc0b6c68df0](マニュアルの data-wwa 属性一覧) も併せてご確認ください。
 
 ### data-wwa-virtualpad-enable
 
