@@ -70,7 +70,7 @@ WWA Wing 付属の HTML ファイルを利用していない場合やビュー�
 ```html
   <body>
     <div id="wrapper">
-      <div class="wwa-size-box" id="wwa-wrapper" data-wwa-mapdata="wwamap.dat" data-wwa-urlgate-enable="true" data-wwa-title-img="cover.gif" data-wwa-autosave="200" data-wwa-virtualpad-enable="true" data-wwa-virtualpad-viewport-fit-enable="true" data-wwa-virtualpad-controller-elm="virtualpad-controller"></div>
+      <div class="wwa-size-box" id="wwa-wrapper" data-wwa-mapdata="wwamap.dat" data-wwa-urlgate-enable="true" data-wwa-title-img="cover.gif" data-wwa-autosave="200" data-wwa-virtualpad-enable="true" data-wwa-virtualpad-viewport-fit-enable="true" data-wwa-virtualpad-controller-elm="#virtualpad-controller"></div>
     </div>
     <div id="virtualpad-controller">
     </div>
