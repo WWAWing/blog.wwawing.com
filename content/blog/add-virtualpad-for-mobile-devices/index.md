@@ -65,12 +65,12 @@ WWA Wing 付属の HTML ファイルを利用していない場合やビュー�
 
 仮想パッドの表示を切り替えるボタンを追加する要素を指定します。
 
-例えば下記の通りに `<div id="data-wwa-virtualpad-controller-elm"></div>` を追加した場合は `data-wwa-virtualpad-controller-elm="virtualpad-controller"` と指定することで、 `<div id="data-wwa-virtualpad-controller-elm"></div>` の箇所に仮想パッド切り替えボタンが追加されます。
+例えば下記の通りに `<div id="data-wwa-virtualpad-controller-elm"></div>` を追加して、 `data-wwa-virtualpad-controller-elm="virtualpad-controller"` と指定することで、 `<div id="data-wwa-virtualpad-controller-elm"></div>` の箇所に仮想パッド切り替えボタンが追加されます。
 
 ```html
   <body>
     <div id="wrapper">
-      <div class="wwa-size-box" id="wwa-wrapper" data-wwa-mapdata="wwamap.dat" data-wwa-urlgate-enable="true" data-wwa-title-img="cover.gif" data-wwa-autosave="200" data-wwa-virtualpad-enable="true" data-wwa-virtualpad-viewport-fit-enable="true"></div>
+      <div class="wwa-size-box" id="wwa-wrapper" data-wwa-mapdata="wwamap.dat" data-wwa-urlgate-enable="true" data-wwa-title-img="cover.gif" data-wwa-autosave="200" data-wwa-virtualpad-enable="true" data-wwa-virtualpad-viewport-fit-enable="true" data-wwa-virtualpad-controller-elm="virtualpad-controller"></div>
     </div>
     <div id="virtualpad-controller">
     </div>
