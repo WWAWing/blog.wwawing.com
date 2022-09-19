@@ -47,7 +47,7 @@ WWA Wing 対応ゲームが投稿できる PLiCy では、最初から仮想パ�
 
 ## data-wwa 属性について
 
-[https://wwawing.notion.site/6-data-wwa-fac13ae80435401eaeb33bc0b6c68df0](マニュアルの data-wwa 属性一覧) も併せてご確認ください。
+[マニュアルの data-wwa 属性一覧](https://wwawing.notion.site/6-data-wwa-fac13ae80435401eaeb33bc0b6c68df0) も併せてご確認ください。
 
 ### data-wwa-virtualpad-enable
 
