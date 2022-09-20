@@ -24,6 +24,8 @@ WWA Wing 対応ゲームが投稿できる PLiCy では、最初から仮想パ�
 
 レイアウト崩れを考慮して何も設定していない場合は仮想パッドは有効になりません。下記の手順に従って有効にしていただく必要があります。
 
+まずは [WWA Wing のサイト](https://wwawing.com/) から最新の WWA Wing をダウンロードし、搭載されている wwa.js を更新しましょう。
+
 お手持ちのゲームの HTML ファイルに、下記を参考に追記してください。
 
 1. `<div class="wwa-size-box">` のある行を探します。特別に改行したりしてなければ14行目辺りにあると思います。
@@ -45,6 +47,8 @@ WWA Wing 対応ゲームが投稿できる PLiCy では、最初から仮想パ�
 
 ## data-wwa 属性について
 
+[マニュアルの data-wwa 属性一覧](https://wwawing.notion.site/6-data-wwa-fac13ae80435401eaeb33bc0b6c68df0) も併せてご確認ください。
+
 ### data-wwa-virtualpad-enable
 
 `true` を指定することで、仮想パッドを有効にします。
@@ -56,6 +60,26 @@ WWA Wing 対応ゲームが投稿できる PLiCy では、最初から仮想パ�
 WWA Wing 付属の HTML ファイルを利用していない場合やビューポート設定を独自にしている場合は `data-wwa-virtualpad-viewport-fit-enable` は省略してください。
 
 逆に `data-wwa-virtualpad-enable` を省略してこの属性を使用することもできます。モバイル端末の大きな画面で WWA 画面を操作したいが、仮想パッドが不要な場合にご利用ください。
+
+### data-wwa-virtualpad-controller-elm
+
+仮想パッドの表示を切り替えるボタンを追加する要素を指定します。
+
+例えば下記の通りに `<div id="data-wwa-virtualpad-controller-elm"></div>` を追加して、 `data-wwa-virtualpad-controller-elm="#virtualpad-controller"` と指定することで、 `<div id="data-wwa-virtualpad-controller-elm"></div>` の箇所に仮想パッド切り替えボタンが追加されます。
+
+```html
+  <body>
+    <div id="wrapper">
+      <div class="wwa-size-box" id="wwa-wrapper" data-wwa-mapdata="wwamap.dat" data-wwa-urlgate-enable="true" data-wwa-title-img="cover.gif" data-wwa-autosave="200" data-wwa-virtualpad-enable="true" data-wwa-virtualpad-viewport-fit-enable="true" data-wwa-virtualpad-controller-elm="#virtualpad-controller"></div>
+    </div>
+    <div id="virtualpad-controller">
+    </div>
+    <footer id="copyright">
+      <p>Internet RPG &quot;<a class="wwa-copyright" href="https://wwajp.com/">World Wide Adventure</a>&quot; 1996-2016 &copy; NAO</p>
+      <p> &quot;<a class="wwa-copyright" href="https://wwawing.com/">WWA Wing</a>&quot; 2013-2022 &copy; WWA Wing Team</p>
+    </footer>
+  </body>
+```
 
 ## 操作方法
 
@@ -74,7 +98,7 @@ WWA Wing 付属の HTML ファイルを利用していない場合やビュー�
 
 また、端末の向きに応じて仮想パッドのサイズも切り替わります。WWA Wing Team 的には横持ちがおすすめです。ただし、前述で `data-wwa-virtualpad-viewport-fit-enable="true"` を省略した場合は有効になりません。
 
-仮想パッドの表示は切り替えることが可能です。「仮想パッド切り替え」ボタンで非表示にしたり、表示したりすることができます。PC でも仮想パッドを表示することはできますが、クリック操作には対応していません。
+`data-wwa-virtualpad-controller-elm` が含まれている場合、仮想パッドの表示を切り替えることが可能です。「仮想パッド切り替え」ボタンで非表示にしたり、表示したりすることができます。PC でも仮想パッドを表示することはできますが、クリック操作には対応していません。
 
 ## 操作性について
 
