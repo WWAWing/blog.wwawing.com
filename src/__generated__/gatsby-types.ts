@@ -449,8 +449,8 @@ type MarkdownRemark_tableOfContentsArgs = {
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
-  readonly category: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
+  readonly category: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
 };
 
@@ -735,13 +735,13 @@ type StaticImage = Node & {
   readonly name: Maybe<Scalars['String']>;
   readonly absolutePath: Maybe<Scalars['String']>;
   readonly relativeDirectory: Maybe<Scalars['String']>;
-  readonly dev: Maybe<Scalars['Float']>;
+  readonly dev: Maybe<Scalars['Int']>;
   readonly mode: Maybe<Scalars['Int']>;
   readonly nlink: Maybe<Scalars['Int']>;
   readonly uid: Maybe<Scalars['Int']>;
   readonly rdev: Maybe<Scalars['Int']>;
   readonly blksize: Maybe<Scalars['Int']>;
-  readonly ino: Maybe<Scalars['Float']>;
+  readonly ino: Maybe<Scalars['Int']>;
   readonly size: Maybe<Scalars['Int']>;
   readonly blocks: Maybe<Scalars['Int']>;
   readonly atimeMs: Maybe<Scalars['Float']>;
@@ -1124,13 +1124,13 @@ type Query_staticImageArgs = {
   name: Maybe<StringQueryOperatorInput>;
   absolutePath: Maybe<StringQueryOperatorInput>;
   relativeDirectory: Maybe<StringQueryOperatorInput>;
-  dev: Maybe<FloatQueryOperatorInput>;
+  dev: Maybe<IntQueryOperatorInput>;
   mode: Maybe<IntQueryOperatorInput>;
   nlink: Maybe<IntQueryOperatorInput>;
   uid: Maybe<IntQueryOperatorInput>;
   rdev: Maybe<IntQueryOperatorInput>;
   blksize: Maybe<IntQueryOperatorInput>;
-  ino: Maybe<FloatQueryOperatorInput>;
+  ino: Maybe<IntQueryOperatorInput>;
   size: Maybe<IntQueryOperatorInput>;
   blocks: Maybe<IntQueryOperatorInput>;
   atimeMs: Maybe<FloatQueryOperatorInput>;
@@ -1219,8 +1219,8 @@ type MarkdownRemarkFilterInput = {
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
-  readonly category: Maybe<StringQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
+  readonly category: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
 };
 
@@ -1480,8 +1480,8 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
   | 'childrenMarkdownRemark.frontmatter.date'
-  | 'childrenMarkdownRemark.frontmatter.category'
   | 'childrenMarkdownRemark.frontmatter.description'
+  | 'childrenMarkdownRemark.frontmatter.category'
   | 'childrenMarkdownRemark.frontmatter.image.sourceInstanceName'
   | 'childrenMarkdownRemark.frontmatter.image.absolutePath'
   | 'childrenMarkdownRemark.frontmatter.image.relativePath'
@@ -1576,8 +1576,8 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
   | 'childMarkdownRemark.frontmatter.date'
-  | 'childMarkdownRemark.frontmatter.category'
   | 'childMarkdownRemark.frontmatter.description'
+  | 'childMarkdownRemark.frontmatter.category'
   | 'childMarkdownRemark.frontmatter.image.sourceInstanceName'
   | 'childMarkdownRemark.frontmatter.image.absolutePath'
   | 'childMarkdownRemark.frontmatter.image.relativePath'
@@ -3306,8 +3306,8 @@ type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.title'
   | 'frontmatter.date'
-  | 'frontmatter.category'
   | 'frontmatter.description'
+  | 'frontmatter.category'
   | 'frontmatter.image.sourceInstanceName'
   | 'frontmatter.image.absolutePath'
   | 'frontmatter.image.relativePath'
@@ -3971,13 +3971,13 @@ type StaticImageFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly absolutePath: Maybe<StringQueryOperatorInput>;
   readonly relativeDirectory: Maybe<StringQueryOperatorInput>;
-  readonly dev: Maybe<FloatQueryOperatorInput>;
+  readonly dev: Maybe<IntQueryOperatorInput>;
   readonly mode: Maybe<IntQueryOperatorInput>;
   readonly nlink: Maybe<IntQueryOperatorInput>;
   readonly uid: Maybe<IntQueryOperatorInput>;
   readonly rdev: Maybe<IntQueryOperatorInput>;
   readonly blksize: Maybe<IntQueryOperatorInput>;
-  readonly ino: Maybe<FloatQueryOperatorInput>;
+  readonly ino: Maybe<IntQueryOperatorInput>;
   readonly size: Maybe<IntQueryOperatorInput>;
   readonly blocks: Maybe<IntQueryOperatorInput>;
   readonly atimeMs: Maybe<FloatQueryOperatorInput>;
@@ -4003,6 +4003,16 @@ type SEOMetadataQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: May
       & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
     )> }>, readonly defaultOgpImage: Maybe<Pick<File, 'publicURL'>> };
 
+type TitleBannerQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type TitleBannerQueryQuery = { readonly banner: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
+
+type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
+
 type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4021,27 +4031,6 @@ type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe
     )> }
   )> };
 
-type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type IndexPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MarkdownRemark, 'excerpt'>
-        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description' | 'category'>
-          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
-        )> }
-      ) }> } };
-
-type ShareQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ShareQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
-
-type TitleBannerQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type TitleBannerQueryQuery = { readonly banner: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
-
 type CategoryPageQueryQueryVariables = Exact<{
   category: Scalars['String'];
 }>;
@@ -4055,6 +4044,17 @@ type CategoryPageQueryQuery = { readonly allMarkdownRemark: { readonly edges: Re
             Pick<File, 'publicURL'>
             & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
           )> }
+        )> }
+      ) }> } };
+
+type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description' | 'category'>
+          & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
         )> }
       ) }> } };
 
