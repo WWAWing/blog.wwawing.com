@@ -11,6 +11,7 @@ module.exports = {
       twitter: `wwa_wing`,
     },
   },
+  graphqlTypegen: true,
   plugins: [
     `gatsby-plugin-image`,
     {
@@ -116,14 +117,12 @@ module.exports = {
         icon: `content/assets/profile-pic.png`,
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-typegen`,
     `gatsby-plugin-twitter`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

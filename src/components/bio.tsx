@@ -12,7 +12,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { rhythm } from "../utils/typography"
 
 const Bio: React.FC = () => {
-  const data: GatsbyTypes.BioQueryQuery = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
+  const data: Queries.BioQueryQuery = useStaticQuery<Queries.BioQueryQuery>(graphql`
     query BioQuery {
       site {
         siteMetadata {
