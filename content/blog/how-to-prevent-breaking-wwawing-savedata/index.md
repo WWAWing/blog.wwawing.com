@@ -233,7 +233,7 @@ if (HAS_ITEM(17)) {
 }
 ```
 
-その他の環境においては、アイテムの所持判定は「扉」パーツか「道」パーツの反応するアイテム番号くらいしかありません。ここでは後者で実装してみます。
+その他の環境においては、「道」パーツの反応するアイテム番号くらいしかありません。
 
 ![wwawing_should_support_having_key_item-8.png](./wwawing_should_support_having_key_item-8.png)
 
