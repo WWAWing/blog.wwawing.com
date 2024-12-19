@@ -285,7 +285,6 @@ function migrate() {
   if (!v["score"]) {
     v["score"] = 0;
   }
-  v["score"] += 100;
 }
 
 function CALL_QUICKLOAD() {
