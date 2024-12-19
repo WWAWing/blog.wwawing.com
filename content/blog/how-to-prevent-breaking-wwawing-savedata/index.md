@@ -8,7 +8,9 @@ image: wwawing_savedata_structure.png
 
 この記事は [WWA Advent Calendar 2024](https://adventar.org/calendars/10185) の21日目です。
 
-WWA Wing ではゲームのアップデートが発生したとしても、ワールド名と暗証番号が変わらなければ、同じセーブデータを活用することができます。
+WWA Wing v3.5.7 以降ではゲームのアップデートが発生したとしても、ワールド名と暗証番号が変わらなければ、同じセーブデータを活用することができます。詳細については以下のブログ記事からどうぞ。
+
+[WWA Wing v3.5.7 をリリースしました。](/improve-save-data-compatibility/)
 
 ただし、 WWA のセーブデータはゲームのアップデートに適用した形式になっていません。理由は色々ありますが、 WWA のセーブデータはイベントでパーツが置き換わった場合、どこどこの場所にそのパーツが置かれたとか、消えたとかが記録されています。大胆な変更をすると、既存のセーブデータではバグを起こして進行不能になる場合があるからです。
 
@@ -40,7 +42,7 @@ WWA Wing ではゲームのアップデートが発生したとしても、ワ�
 
 ## 大前提
 
-**これから説明するルールに従う絶対に必要はありません**。 既存のセーブデータが壊れることを危惧してバグを修正しないのは元も子もないので、こういう時は壊れることを承知の上で修正したほうがいい場合もあります。
+**これから説明するルールに絶対に従う必要はありません**。 既存のセーブデータが壊れることを危惧してバグを修正しないのは元も子もないので、こういう時は壊れることを承知の上で修正したほうがいい場合もあります。
 
 細かい修正をしただけで既存のセーブデータが進行不能になる・・・と言うのであれば少し修正方法を考えたほうが良いと思いますが、ゲームが進行できないバグについては既存のセーブデータが壊れるよりもとにかく修正することを優先しましょう。
 
@@ -65,20 +67,17 @@ WWAのセーブデータはアップデートに適用した形式になって�
 ![wwawing_should_not_move_removable_parts-2.png](./wwawing_should_not_move_removable_parts-2.png)
 
 ![wwawing_should_not_move_removable_parts-3.png](./wwawing_should_not_move_removable_parts-3.png)
-
-通れた～ここまでに何時間かかったんやら・・・
+*通れた～ここまでに何時間かかったんやら・・・*
 
 何らかの都合でそのキャラクターを動かしたくなるかもしれませんが・・・。
 
 ![wwawing_should_not_move_removable_parts-4.png](./wwawing_should_not_move_removable_parts-4.png)
-
-あ、やっぱ上にずらしたほうがしっくり来るな～移動しとこ
+*あ、やっぱ上にずらしたほうがしっくり来るな～移動しとこ*
 
 すでに通せる状態のセーブデータでこれをやると、通れなくなってしまいます。
 
 ![wwawing_should_not_move_removable_parts-5.png](./wwawing_should_not_move_removable_parts-5.png)
-
-あれぇ！？
+*あれぇ！？*
 
 モンスターパーツも、戦闘に勝つと消えるようになっているので、ダンジョンWWAを修正する際はモンスターの配置はあまりいじらない方が良いでしょう。
 
@@ -140,20 +139,16 @@ WWAに詳しい人ほどわかるような話ですが、セーブデータで�
 武器や防具、釣竿、ツルハシなど、常時手にするアイテムについては、アイテムボックスへの格納位置を指定することがあります。
 
 ![wwawing_should_not_change_item_box_position-1.png](./wwawing_should_not_change_item_box_position-1.png)
-
-大金をはたいて、釣竿を手に入れたぞ！
+*大金をはたいて、釣竿を手に入れたぞ！*
 
 ![wwawing_should_not_change_item_box_position-2.png](./wwawing_should_not_change_item_box_position-2.png)
-
-あれ？ 釣竿を11番に入れてしまった。あれは武器を置く場所だから、9番に移動しよう。
+*あれ？ 釣竿を11番に入れてしまった。あれは武器を置く場所だから、9番に移動しよう。*
 
 ![wwawing_should_not_change_item_box_position-3.png](./wwawing_should_not_change_item_box_position-3.png)
-
-次は武器の入手だ、待ってろよ！
+*次は武器の入手だ、待ってろよ！*
 
 ![wwawing_should_not_change_item_box_position-4.png](./wwawing_should_not_change_item_box_position-4.png)
-
-武器を手に入れ・・・あれ？ 釣り竿が変な位置に行ってしまった！
+*武器を手に入れ・・・あれ？ 釣り竿が変な位置に行ってしまった！*
 
 アイテムボックスの格納位置を指定しているアイテムを入手して、すでにその格納位置にアイテムがある場合は、以下の通りの挙動となります。
 
@@ -170,20 +165,17 @@ WWAに詳しい人ほどわかるような話ですが、セーブデータで�
 ![wwawing_should_not_shrink_movable_area-1.png](./wwawing_should_not_shrink_movable_area-1.png)
 
 ![wwawing_should_not_shrink_movable_area-2.png](./wwawing_should_not_shrink_movable_area-2.png)
-
-セーブする時は端っこ大好き！ 隅っこが落ち着くんだ
+*セーブする時は端っこ大好き！ 隅っこが落ち着くんだ*
 
 大きすぎるな・・・小さくするか。とか、何か物でも置くか。とか、思うはずです。
 
 ![wwawing_should_not_shrink_movable_area-3.png](./wwawing_should_not_shrink_movable_area-3.png)
-
-ちょっと部屋が広すぎたな・・・狭くしとくか
+*ちょっと部屋が広すぎたな・・・狭くしとくか*
 
 ただし、置き方次第では最悪プレイヤーが移動できなくなる場合があります。
 
 ![wwawing_should_not_shrink_movable_area-4.png](./wwawing_should_not_shrink_movable_area-4.png)
-
-あああああああああ！！！
+*あああああああああ！！！*
 
 もし削るにしても、周囲1マスぐらいに留めておくことをおすすめします。そうすれば隣の床に脱出することは可能です。
 
@@ -211,22 +203,19 @@ WWAに詳しい人ほどわかるような話ですが、セーブデータで�
 - より安い価格で斧を売るパーツをどっかに置きたい・・・
     
     ![wwawing_should_support_having_key_item-5.png](./wwawing_should_support_having_key_item-5.png)
-    
-    次回アップデート！ なんと奥地まで行ったあなたには、サービス付きで斧を販売してくれます！
+    *次回アップデート！ なんと奥地まで行ったあなたには、サービス付きで斧を販売してくれます！*
     
 - ゲームバランスの都合で斧を売るパーツを移転しなくてはいけない・・・
 
 すでに通常の斧を持っている場合は・・・？
 
 ![wwawing_should_support_having_key_item-4.png](./wwawing_should_support_having_key_item-4.png)
-
-いや～次のアップデートで金の斧がおトクに買える販売がいるのか～頑張って通常の斧は手に入れたぞ
+*いや～次のアップデートで金の斧がおトクに買える販売がいるのか～。頑張って通常の斧は手に入れたぞ*
 
 通常の斧の買い直しに迫られます。これはいけない。
 
 ![wwawing_should_support_having_key_item-6.png](./wwawing_should_support_having_key_item-6.png)
-
-え？ また通常の斧を買えと言うんですか？？？
+*え？ また通常の斧を買えと言うんですか？？？*
 
 こうした場合ですが、 WWA Script が使用可能であれば、すでに斧を持っている場合の考慮もできます。
 
@@ -251,8 +240,7 @@ if (HAS_ITEM(17)) {
 そしてこの道パーツを販売パーツの周辺に置いておきましょう。 WWA Script で判別できる場合は、この道パーツを設ける必要はありません。
 
 ![wwawing_should_support_having_key_item-9.png](./wwawing_should_support_having_key_item-9.png)
-
-金の斧がよりおトクに買えるぞ・・・！
+*金の斧がよりおトクに買えるぞ・・・！*
 
 過去の事例として、WWAゲーム「英棟市」のアップデートで、ツルハシの販売場所を移転することになった場合のことを説明します。
 
@@ -465,8 +453,7 @@ function updateCharactersBook() {
 セーブデータが消滅するため、本当の最終手段です。
 
 ![wwawing_lostsave.png](./wwawing_lostsave.png)
-
-😇
+*😇*
 
 ## まとめ
 
