@@ -13,7 +13,7 @@ interface Props {
  * @param publicUrl ページの絶対パス (サイトの URL は含まない)
  */
 const Share: React.FC<Props> = ({ publicUrl }) => {
-  const data = useStaticQuery<GatsbyTypes.ShareQueryQuery>(graphql`
+  const data = useStaticQuery<Queries.ShareQueryQuery>(graphql`
     query ShareQuery {
       site {
         siteMetadata {

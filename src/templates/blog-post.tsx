@@ -10,7 +10,7 @@ import getCategoryUrl from "../utils/getCategoryUrl"
 import Share from "../components/share"
 
 interface Props {
-  data: GatsbyTypes.BlogPostBySlugQuery,
+  data: Queries.BlogPostBySlugQuery,
   pageContext: {
     slug: string,
     previous: BlogPostNode,

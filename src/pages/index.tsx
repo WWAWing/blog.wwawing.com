@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostItem from "../components/postItem/index"
 
-const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, location }) => {
+const BlogIndex: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data, location }) => {
   const siteTitle = data.site?.siteMetadata?.title
   const posts = data.allMarkdownRemark.edges
 

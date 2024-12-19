@@ -6,7 +6,7 @@ import Bio from "../components/bio";
 import PostItem from "../components/postItem/index";
 
 interface Props {
-  data: GatsbyTypes.CategoryPageQueryQuery,
+  data: Queries.CategoryPageQueryQuery,
   pageContext: {
     category: string,
   }

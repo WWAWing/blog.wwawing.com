@@ -9,7 +9,7 @@ declare const __PATH_PREFIX__: string // TODO: Gatsby から型定義を持っ�
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
-  const data = useStaticQuery<GatsbyTypes.TitleBannerQueryQuery>(graphql`
+  const data = useStaticQuery<Queries.TitleBannerQueryQuery>(graphql`
     query TitleBannerQuery {
       banner: file(absolutePath: { regex: "/title-banner.png/" }) {
         childImageSharp {
