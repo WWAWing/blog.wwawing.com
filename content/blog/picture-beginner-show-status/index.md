@@ -474,10 +474,12 @@ PICTURE(1, { pos: [20, 20], img: [1, 2] });
 
 これまで改変したケーブダンジョン1のファイルを配布します。
 
-（TODO ここにリンクを貼る）
+[ケーブダンジョン1 ピクチャ機能改造版](https://wwawing.com/unstable/caves01_picture)
+[(zipファイルでダウンロード)](https://wwawing.com/downloads/caves01_picture.zip)
 
 - dat ファイルの読み込みには caves01.gif が必要ですが、今回のサンプルに含まれています。 WWA Wing の完全版と物は同じなので、上書きするかしないかはご自由にどうぞ
-- WWA Script のソースとして script/index.js に関数が追加されています。すでに同じ index.js を編集している方は、上書きで頑張って書いた関数実装が消えないように、うまくやり繰りしてください
+- WWA Script のソースとして script/script_file_list.json と script/index.js に関数が追加されています。すでに同じ index.js を編集している方は、上書きで頑張って書いた関数実装が消えないように、うまくやり繰りしてください
+- 音声ファイルや wwa.js などは含まれていません
 - あくまで参考用としてご活用ください。このままの状態でゲーム投稿サイトに投稿するのは避けてね
 
 ## おわりに
