@@ -3,7 +3,7 @@ title: "ピクチャ機能応用！ 演出を加えてみよう"
 date: "2025-04-28T23:00:00+09:00"
 category: "コラム"
 description: "ピクチャ機能では情報の表示の他にも、グラフィックを動かす演出もできます。演出の書き方は複雑で大変ですが、出来上がった時の迫力はご褒美でもあり、魅力を作る要素にもなります。"
-image: wwawing_island02_fishing_in_lake.png
+image: wwawing_picture_advance-scaling_down_crab.png
 ---
 
 前回の記事 [ピクチャ機能入門！ ゲームに便利情報を表示してみよう](/picture-beginner-show-status) の続きです。
