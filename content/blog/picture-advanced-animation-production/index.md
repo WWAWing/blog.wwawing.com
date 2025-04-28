@@ -17,7 +17,7 @@ image: wwawing_island02_fishing_in_lake.png
 
 ## カニを倒すと沈む演出を加えよう
 
-ファンタジーアイランドではボスのカニを倒すと「ブクブク・・・」のメッセージと共に消滅します。これを沈むような演出にしてみましょう。
+[ファンタジーアイランド](https://wwajp.com/wwa/island02.html) ではボスのカニを倒すと「ブクブク・・・」のメッセージと共に消滅します。これを沈むような演出にしてみましょう。
 
 まず物体パーツを61番を、以下のメッセージに置き換えます。
 
@@ -91,7 +91,7 @@ PICTURE(2, {
 
 以上を踏まえて、「横向きのキャラクターが7歩、1フレーム4ピクセル歩いて消えるピクチャを作りたい！」としましょう。
 
-![wwawing_picture-move_and_frame.drawio.png](./wwawing_picture-move_and_frame.drawio.png)
+![横向きのキャラクターが7歩、1フレーム4ピクセル歩いて消えるピクチャでは、移動距離は280px、かかる時間は70フレーム時間となります。](./wwawing_picture-move_and_frame.drawio.png)
 
 ちなみに「横向きのキャラクターが8歩、5秒間歩いて消えるピクチャを作りたい！ 速度？ そんなものは知らん！」という場合については以下のように書くことはできますが・・・現状はあまりお勧めしません。
 
@@ -110,7 +110,7 @@ PICTURE(2, {
 
 2つは1秒ごとに流れるフレーム時間がデバイスによって異なるからです。2020年くらいまでは1秒ごとに流れるフレーム時間、通称「リフレッシュレート」は60回が一般的でした。しかし最近はゲーミングモニターや高性能なスマートフォンを中心に120回に増えることが多くなりました。
 
-![wwawing_high_fps_is_too_fast.png](./wwawing_high_fps_is_too_fast.png)
+![近年PCやスマートフォンの画面のリフレッシュレートは増えつつある](./wwawing_high_fps_is_too_fast.png)
 
 2025年現在、 WWA Wing はそのリフレッシュレートに応じてゲームのスピードが変わってしまう問題を抱えています。この問題はなるべく直そうと考えてはいますが、現時点では一部のPCとスマホでピクチャの流れが大きく変わってしまうことになるのです。
 
@@ -174,7 +174,7 @@ PICTURE(1, {
 
 ファンタジーアイランドの対岸の島で釣り竿を持っていくと、奥の湖で魚を釣ることができます。このまま魚が手に入るだけでは味気ないので、ピクチャ機能でより豪快にしてみましょう。
 
-![wwawing_island02_fishing_in_lake.png](./wwawing_island02_fishing_in_lake.png)
+![ファンタジーアイランドで釣りをしようとしているプレイヤーのゲーム画面](./wwawing_island02_fishing_in_lake.png)
 
 以下のような動きを想定しています。
 
@@ -227,7 +227,7 @@ PICTURE(1, {
 
 そして「指定位置にパーツを出現」では、元の58番と同じようにプレイヤーの真下に59番（魚のパーツ）を配置するようにします。
 
-![wwawing_picture_advance-how_to_fishing_animation_last_parts_message.png](./wwawing_picture_advance-how_to_fishing_animation_last_parts_message.png)
+![物体パーツ122番の編集画面。表示メッセージは「やった！　魚が釣れたぞっ！」で、指定位置にパーツを出現は59番のパーツを X: 5, Y: 66 で配置。](./wwawing_picture_advance-how_to_fishing_animation_last_parts_message.png)
 
 パーツを4つも使用する、複雑な動きになりました。プロパティをそれぞれ解説します。
 
@@ -239,7 +239,7 @@ PICTURE(1, {
     - 左から「次表示するピクチャの定義が書かれたパーツ番号」「パーツ種類」「パーツのプロパティを引き継ぐ」です。
     - ここでは物体パーツ120番のメッセージに書かれたピクチャを、今のピクチャのプロパティを引き継いで表示することになります。
 
-![wwawing_picture-next_and_take_over_properties.drawio.png](./wwawing_picture-next_and_take_over_properties.drawio.png)
+![nextプロパティでピクチャの消去時に継承する時は、消去したタイミングのピクチャのプロパティをベースに、書いたプロパティを上書きして作成される。](./wwawing_picture-next_and_take_over_properties.drawio.png)
 
 そして次表示する物体パーツ120番ですが、物体パーツ58番に書いたピクチャのプロパティをこのまま引き継ぐため、上書きする形で記載します。
 
@@ -308,7 +308,7 @@ PICTURE(1, {
 
 こういう画像を用意してみました。
 
-![island_map.gif](./island_map.gif)
+![島の地図画像](./island_map.gif)
 
 ストーリーのメッセージ表示中に地図の画像を表示することはあると思います。これを使用して `$face` マクロで表示するのかな～と思うところですが、このイラストは横幅432ピクセル、縦幅243ピクセル。WWA のイメージ画像ファイル（横幅400px）にはギリギリ入りません。
 
@@ -365,17 +365,19 @@ MSG(`昔々、幻の島、アイランド島というものがあってだな、
 
 こんな感じで外部画像ファイルを使用することができます。
 
-![wwawing_picture_advance-show_image_file_as_island_map.png](./wwawing_picture_advance-show_image_file_as_island_map.png)
+![島の地図画像を表示している WWA のゲーム画面](./wwawing_picture_advance-show_image_file_as_island_map.png)
 
-サンプルコードにあった `FACE` 関数を外した状態で実行すると、以下のようになります。
+サンプルコードにあった `FACE` 関数を外した状態で実行すると、以下のようにメッセージテキストが被って表示されます。
 
-![wwawing_picture_advance-show_image_file_without_empty_face.png](./wwawing_picture_advance-show_image_file_without_empty_face.png)
+![島の地図画像を表示しているが、その真上にメッセージテキストが被って表示されている WWA のゲーム画面](./wwawing_picture_advance-show_image_file_without_empty_face.png)
 
 メッセージ表示ではなく、画面上に表示するのであれば、1つ1つ1マスごとにパーツを作成することがないため、実現の手間を省くこともできます。
 
-地図を外部画像にして用いる手法は「謎めいた機械を追い求めて 闇組織の争奪」や「デスゲーム・クリエイティブ・エンターテイメント」に含まれています。
+地図を外部画像にして用いる手法は「[謎めいた機械を追い求めて 闇組織の争奪](https://www.aokashi.net/wwa/strange_machine_next/)」や「[デスゲーム・クリエイティブ・エンターテインメント](https://hirarira.net/wwa/new_wwa/dce/)」に含まれています。
 
-![dce_opening_worldmap_1530.png](./dce_opening_worldmap_1530.png)
+![「デスゲーム・クリエイティブ・エンターテイメント」の新世界歴1530年時点の地図画像](./dce_opening_worldmap_1530.png)
+
+*「デスゲーム・クリエイティブ・エンターテイメント」のオープニングでは、画像を重ねることで地図の質感を表現している*
 
 そして外部画像ファイルも同様にアニメーション関連のプロパティと併用することができます。
 
@@ -414,11 +416,17 @@ MSG(`昔々、幻の島、アイランド島というものがあってだな、
 
 ピクチャ機能で使用できるプロパティが一通り分かったという事で、自ら演出を実現してみてはいかがですか？
 
-[WWA Wing のサイト](https://wwawing.com) や不安定版の完全版に含まれているサンプルマップでは、WWA Script のコード実行が含まれていて、そこからすぐに試すことができます。
+[WWA Wing のサイト](https://wwawing.com) や不安定版の完全版に含まれているサンプルマップでは、ゲームプレイ中に WWA Script のコード実行が含まれていて、そこからすぐに試すことができます。
 
-![strange_machine_next-how_to_make_battle_effect_picture.png](./strange_machine_next-how_to_make_battle_effect_picture.png)
+![「謎めいた機械を追い求めて 闇組織の争奪」のコマンドバトルのエフェクトを制作している様子](./strange_machine_next-how_to_make_battle_effect_picture.png)
+
+*「謎めいた機械を追い求めて 闇組織の争奪」のコマンドバトルのエフェクトはテストプレイ中に WWA Script のコードを書いて作られていた*
 
 `next` プロパティを用いた連続した動きにおいても、1つ1つの動きを分割したうえで、その場で作って確かめることが可能です。
+
+ただし WWA Script のコード実行を試す場合は、WWA Script の開始を示す `<script>` の文字列は含めないようにしてください。
+
+![解析中にエラーが発生しました。 Unexpected token (1:0)](./wwawing_script_console_do_not_include_script_start_tag.png)
 
 想像が付かない人向きのために、まとまった動作のサンプルを [ピクチャ機能のテストマップ](https://wwawing.com/unstable/picture_test) の下に進んだ所に用意しています。[WWA Wing 不安定版の完全版](https://wwawing.com/downloads/) をダウンロードすると付属しているので、どんな実装になっているか、作成ツールで参考にしてみてください。
 
