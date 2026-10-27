@@ -1,0 +1,19 @@
+packages:
+  - "packages/*"
+# サプライチェーン攻撃対策のため、リリースされてから一週間経過したパッケージのみを使用するようにする
+minimumReleaseAge: 10080 # 7days = 60 * 24 * 7 minutes
+minimumReleaseAgeStrict: true
+minimumReleaseAgeIgnoreMissingTime: false
+# ただし、内製パッケージは除外する
+minimumReleaseAgeExclude:
+  - "@wwawing/*"
+allowBuilds:
+  '@parcel/watcher': true 
+  core-js: true
+  core-js-pure: true
+  es5-ext: true
+  gatsby: true
+  gatsby-cli: true
+  lmdb: true
+  msgpackr-extract: true
+  sharp: true
