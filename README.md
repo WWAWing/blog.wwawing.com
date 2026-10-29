@@ -9,7 +9,7 @@ WWA Wing ブログのソースコードです。
 1.  **依存パッケージをインストールします。**
 
     ```shell
-    npm install
+    pnpm install
     ```
 
 2.  **開発サーバーを起動します。**
@@ -19,15 +19,15 @@ WWA Wing ブログのソースコードです。
     設定ファイル以外のソースファイルに変更が加わると、自動で反映されます。
 
     ```shell
-    npm run develop
+    pnpm run develop
     ```
 
     また、 `localhost:8000/___graphql` で GraphQL の取得結果を確認することができます。
 
 ## コマンド
-- `npm run build`: 本ブログをビルドします
-- `npm run develop`: 開発サーバーを起動します
-- `npm run format`: Prettier を使用してソースコードを整形します
+- `pnpm run build`: 本ブログをビルドします
+- `pnpm run develop`: 開発サーバーを起動します
+- `pnpm run format`: Prettier を使用してソースコードを整形します
 
 ## ライセンスについて
 
